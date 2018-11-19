@@ -23,7 +23,8 @@ class Party:
         self.observers.remove(friend)
 
     def send_invites(self, time):
-        (o.get_invite(f"{self.location}: {time}") for o in self.observers)
+        for observer in self.observers:
+            observer.get_invite(f"{self.location}: {time}")
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
